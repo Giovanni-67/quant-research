@@ -53,8 +53,11 @@ def handler(db_path,root):
                     mime={'dashboard.html':'text/html','dashboard.css':'text/css','dashboard.js':'text/javascript'}[name]
                 elif parsed.path.startswith('/files/'):
                     relative=unquote(parsed.path[len('/files/'):]);path=(root/relative).resolve()
-                    if not path.is_relative_to(root) or path.suffix not in ('.html','.json','.csv') or not (
-                        relative.startswith(('research-results','demo-results','market-results','var/calibration/','var/experiments/'))):
+                    parts=path.relative_to(root).parts if path.is_relative_to(root) else ()
+                    approved=bool(parts) and (parts[0].startswith(('research-results','demo-results','market-results'))
+                        or parts[:2] in (('var','calibration'),('var','experiments')))
+                    # Authorize the resolved destination, never the pre-normalized URL.
+                    if not approved or path.suffix not in ('.html','.json','.csv'):
                         self.send_error(403);return
                     payload=path.read_bytes();mime=mimetypes.guess_type(path.name)[0] or 'text/plain'
                 else:self.send_error(404);return
