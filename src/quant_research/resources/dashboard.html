@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research Desk</title><link rel="stylesheet" href="/dashboard.css"><script src="/dashboard.js" defer></script></head>
+<body><header><div class="brand">Research Desk <span>Local paper research</span></div><button id="refresh">Refresh</button></header>
+<nav aria-label="Workspace"><button data-tab="overview" aria-current="page">Overview</button><button data-tab="portfolios">Portfolios</button><button data-tab="jobs">Jobs</button><button data-tab="research">Research</button><button data-tab="experiments">Experiments</button></nav>
+<main><div class="title"><div><h1 id="heading">Research overview</h1><p id="subtitle">Accounts, evidence and background activity in one place.</p></div><span id="updated" class="muted" aria-live="polite">Loading…</span></div>
+<div class="notice" id="notice">Paper simulation only. No live orders. Research results do not establish profitability.</div>
+<p id="error" role="alert" hidden></p><div id="content" aria-live="polite"></div>
+<footer>Deterministic accounting · Local SQLite storage · AI suggestions require review</footer></main>
+<dialog id="detail"><div class="dialog-head"><h2 id="detail-title">Details</h2><button id="close-detail" class="secondary">Close</button></div><div id="detail-content"></div></dialog></body></html>
