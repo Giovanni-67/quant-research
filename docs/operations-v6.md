@@ -124,12 +124,13 @@ and [noninteractive usage](https://developers.openai.com/codex/noninteractive) d
 
 ## Validation status
 
-The verified suite has 117 tests, including the installed wheel entry point and packaged
+The suite has 121 tests, including the installed wheel entry point and packaged
 dashboard resources. New checks cover ATR hand calculations, warm-up signal preservation,
 split-adjusted order caps, receivables in risk equity, halted-state persistence, transaction
 rollback, duplicate updates, revised bars/actions, stale data, source changes, lease expiry,
 stale worker completion, bounded retry, recurrence coalescing, response immutability, and
-loopback HTTP host/path/method restrictions. Browser interaction and launcher restart
+loopback HTTP host/path/method restrictions, simultaneous account/worker claims, and
+completed-session refresh boundaries. Browser interaction and launcher restart
 checks supplement the automated suite. A real-data trend account was advanced from a
 120-session prefix to the full saved 250-session input without altering prior history.
 
